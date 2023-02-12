@@ -1,21 +1,13 @@
-import { Link, Outlet } from 'umi';
-import styles from './index.less';
-
-export default function Layout() {
+import { Link, Outlet } from "umi";
+import { Layout } from "antd";
+import styles from "./index.module.less";
+import "normalize.css";
+import Header from "@/components/header";
+export default function Index() {
   return (
-    <div className={styles.navs}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/docs">Docs</Link>
-        </li>
-        <li>
-          <a href="https://github.com/umijs/umi">Github</a>
-        </li>
-      </ul>
+    <Layout className={styles.layout}>
+      <Header />
       <Outlet />
-    </div>
+    </Layout>
   );
 }
