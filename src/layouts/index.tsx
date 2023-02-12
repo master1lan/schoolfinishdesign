@@ -9,7 +9,7 @@ export default function Index() {
   return (
     <Layout className={styles.layout}>
       <Header />
-      <Layout>
+      <Layout className={styles.content}>
         <Search />
         <Content>
           <Outlet />

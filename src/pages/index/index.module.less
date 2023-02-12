@@ -1,0 +1,57 @@
+.layout {
+    display: flex;
+
+    .sider {
+        background-color: rgb(245, 245, 245);
+
+        .container {
+            border: 1px solid grey;
+            min-height: 100vh;
+            max-width: 500px;
+            height: 100%;
+        }
+    }
+
+
+    .content {
+        margin-left: 20px;
+
+        .section {
+            padding: 15px 20px;
+            border: 1px solid grey;
+            margin-bottom: 20px;
+
+            &_name {
+                font-size: 20px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+
+            &_feature,
+            &_description {
+                display: flex;
+                margin-bottom: 20px;
+
+                &_name {
+                    flex-basis: 80px;
+                    flex-shrink: 0;
+                }
+            }
+
+            &_description_content {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                vertical-align: baseline;
+                text-overflow: ellipsis;
+                line-break: anywhere;
+                -webkit-line-clamp: 3;
+                word-break: break-all;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+:global(.ant-tag) {
+    padding: 5px 10px;
+}
