@@ -1,17 +1,31 @@
-.search {
+.content {
     position: relative;
-    max-width: 960px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    padding: 25px 0;
 
+    .search {
+        position: relative;
+        display: flex;
+        padding: 25px 0;
+        min-width: min(90vw, 700px);
+        height: 90px;
 
-    &>button {
-        border-radius: 0px !important;
+        &>button {
+            border-radius: 0px !important;
+        }
+    }
 
-        &:last-of-type {
-            margin-left: 10px;
+    .popover {
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        z-index: 1;
+
+        .advanceSubmitContent {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
     }
 }

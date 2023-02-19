@@ -6,6 +6,7 @@ specifiers:
   '@types/react': ^18.0.0
   '@types/react-dom': ^18.0.0
   antd: ^5.2.0
+  compression-webpack-plugin: ^10.0.0
   eslint: ^8.33.0
   normalize.css: ^8.0.1
   postcss: ^8.4.21
@@ -23,6 +24,7 @@ dependencies:
   '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
   '@babel/core': 7.20.12
   antd: 5.2.0_biqbaboplfbrettd7655fr4n2y
+  compression-webpack-plugin: 10.0.0_webpack@5.75.0
   eslint: 8.33.0
   normalize.css: 8.0.1
   postcss: 8.4.21
@@ -2318,12 +2320,30 @@ packages:
     hasBin: true
     dev: false
 
+  /ajv-formats/2.1.1:
+    resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
+    peerDependenciesMeta:
+      ajv:
+        optional: true
+    dependencies:
+      ajv: 8.12.0
+    dev: false
+
   /ajv-keywords/3.5.2_ajv@6.12.6:
     resolution: {integrity: sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==}
     peerDependencies:
       ajv: ^6.9.1
     dependencies:
       ajv: 6.12.6
+    dev: false
+
+  /ajv-keywords/5.1.0_ajv@8.12.0:
+    resolution: {integrity: sha512-YCS/JNFAUyr5vAuhk1DWm1CBxRHW9LbJ2ozWeemrIqpbsqKjHVxYPyi5GC0rjZIT5JxJ3virVTS8wk4i/Z+krw==}
+    peerDependencies:
+      ajv: ^8.8.2
+    dependencies:
+      ajv: 8.12.0
+      fast-deep-equal: 3.1.3
     dev: false
 
   /ajv/6.12.6:
@@ -2956,6 +2976,17 @@ packages:
 
   /common-path-prefix/3.0.0:
     resolution: {integrity: sha512-QE33hToZseCH3jS0qN96O/bSh3kaw/h+Tq7ngyY9eWDUnTlTNUyqfqvCXioLe5Na5jFsL78ra/wuBU4iuEgd4w==}
+    dev: false
+
+  /compression-webpack-plugin/10.0.0_webpack@5.75.0:
+    resolution: {integrity: sha512-wLXLIBwpul/ALcm7Aj+69X0pYT3BYt6DdPn3qrgBIh9YejV9Bju9ShhlAsjujLyWMo6SAweFIWaUoFmXZNuNrg==}
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      webpack: ^5.1.0
+    dependencies:
+      schema-utils: 4.0.0
+      serialize-javascript: 6.0.1
+      webpack: 5.75.0
     dev: false
 
   /compute-scroll-into-view/2.0.4:
@@ -7312,6 +7343,16 @@ packages:
       '@types/json-schema': 7.0.11
       ajv: 6.12.6
       ajv-keywords: 3.5.2_ajv@6.12.6
+    dev: false
+
+  /schema-utils/4.0.0:
+    resolution: {integrity: sha512-1edyXKgh6XnJsJSQ8mKWXnN/BVaIbFMLpouRUrXgVq7WYne5kw3MW7UPhO44uRXQSIpTSXoJbmrR2X0w9kUTyg==}
+    engines: {node: '>= 12.13.0'}
+    dependencies:
+      '@types/json-schema': 7.0.11
+      ajv: 8.12.0
+      ajv-formats: 2.1.1
+      ajv-keywords: 5.1.0_ajv@8.12.0
     dev: false
 
   /scroll-into-view-if-needed/3.0.4:
