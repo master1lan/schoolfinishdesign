@@ -1,9 +1,15 @@
 import { Button, Card, Col, Form, Input, Row, Select, DatePicker } from "antd";
+import { forwardRef } from "react";
+import { Link } from "umi";
 import style from "./search.module.less";
 const { RangePicker } = DatePicker;
-export default function AdvanceSearch() {
+export default forwardRef(function AdvanceSearch(
+  props: { handlerClose: () => void },
+  ref: any
+) {
+  const { handlerClose } = props;
   return (
-    <Card className={style.popover}>
+    <Card className={style.popover} ref={ref}>
       <Form labelCol={{ span: 6 }}>
         <Row>
           <Col span={12}>
@@ -73,11 +79,15 @@ export default function AdvanceSearch() {
             </Form.Item>
           </Col>
           <Col span={24} className={style.advanceSubmitContent}>
-            <Button type='primary'>检索</Button>
             <Button>重置</Button>
+            <Link to={`/result`}>
+              <Button type='primary' onClick={handlerClose}>
+                检索
+              </Button>
+            </Link>
           </Col>
         </Row>
       </Form>
     </Card>
   );
-}
+});

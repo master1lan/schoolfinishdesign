@@ -1,26 +1,40 @@
 import { Button, Input } from "antd";
-import { useEffect, useState } from "react";
+import { Link } from "umi";
+import { useEffect, useRef, useState } from "react";
 import AdvanceSearch from "./advanceSearch";
 import style from "./search.module.less";
-const { Search } = Input;
 
 const Search_header = () => {
   const [show, set] = useState(false),
+    handlerClose = () => set(false),
     handler = () => set((item) => !item);
+  const contentRef = useRef(null);
   useEffect(() => {
+    const listerHanlder = (event: MouseEvent) => {
+      //@ts-ignore
+      const isInContain = contentRef.current!.contains(event.target);
+      !isInContain && set(false);
+    };
+
     if (show) {
-      // window.addEventListener('click',)
+      window.addEventListener("click", listerHanlder);
     }
-  }, []);
+    return () => window.removeEventListener("click", listerHanlder);
+  }, [show]);
   return (
-    <div className={style.content}>
+    <div className={style.content} ref={contentRef}>
       <div className={style.search}>
         <Button size='large' onClick={handler}>
           高级检索
         </Button>
-        <Search allowClear enterButton='搜索' size='large' width={`600px`} />
+        <Input allowClear />
+        <Link to={"result"}>
+          <Button size='large' disabled={show}>
+            搜索
+          </Button>
+        </Link>
       </div>
-      {show && <AdvanceSearch />}
+      {show && <AdvanceSearch handlerClose={handlerClose} />}
     </div>
   );
 };

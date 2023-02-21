@@ -1,7 +1,5 @@
 import { defineConfig } from "umi";
 
-// const configRoute = [{ path: "/", component: "@/pages/index" }],
-//   publicPathName = "schoolfinishdesign";
 export default defineConfig({
   title: "信用案例分析系统",
   routes: [
@@ -16,6 +14,10 @@ export default defineConfig({
     {
       path: "/",
       component: "@/pages/index",
+    },
+    {
+      path: "/result",
+      component: "@/pages/result",
     },
   ],
   npmClient: "pnpm",

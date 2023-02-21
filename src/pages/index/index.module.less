@@ -1,53 +1,37 @@
-.layout {
-    display: flex;
+.content {
+    margin-left: 20px;
 
-    .sider {
-        background-color: rgb(245, 245, 245);
+    .section {
+        padding: 15px 20px;
+        border: 1px solid grey;
+        margin-bottom: 20px;
 
-        .container {
-            border: 1px solid grey;
-            min-height: 100vh;
-            max-width: 500px;
-            height: 100%;
+        &_name {
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
-    }
 
-
-    .content {
-        margin-left: 20px;
-
-        .section {
-            padding: 15px 20px;
-            border: 1px solid grey;
+        &_feature,
+        &_description {
+            display: flex;
             margin-bottom: 20px;
 
             &_name {
-                font-size: 20px;
-                margin-top: 10px;
-                margin-bottom: 20px;
+                flex-basis: 80px;
+                flex-shrink: 0;
             }
+        }
 
-            &_feature,
-            &_description {
-                display: flex;
-                margin-bottom: 20px;
-
-                &_name {
-                    flex-basis: 80px;
-                    flex-shrink: 0;
-                }
-            }
-
-            &_description_content {
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                vertical-align: baseline;
-                text-overflow: ellipsis;
-                line-break: anywhere;
-                -webkit-line-clamp: 3;
-                word-break: break-all;
-                overflow: hidden;
-            }
+        &_description_content {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            vertical-align: baseline;
+            text-overflow: ellipsis;
+            line-break: anywhere;
+            -webkit-line-clamp: 3;
+            word-break: break-all;
+            overflow: hidden;
         }
     }
 }
