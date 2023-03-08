@@ -43,7 +43,6 @@ class UserController extends Controller {
       username,
       password,
       uuid,
-      join_day: new Date().toLocaleDateString("fr-CA"),
       logoUrl: `${this.config.hostUrl}/public/userlogo/userLOGO.png`,
     });
 
@@ -57,6 +56,8 @@ class UserController extends Controller {
         },
         app.config.jwt.secret
       );
+      //因为是注册所以可以直接在redis里面存token
+      await ctx.service.redis.setToken(username, token, tokenLiveTime);
       ctx.body = {
         code: 200,
         msg: "注册成功",
@@ -64,10 +65,10 @@ class UserController extends Controller {
           token,
           uuid,
           username,
+          logoUrl: `${this.config.hostUrl}/public/userlogo/userLOGO.png`,
+          signature: "",
         },
       };
-      //因为是注册所以可以直接在redis里面存token
-      await ctx.service.redis.setToken(username, token, tokenLiveTime);
     } else {
       ctx.body = {
         code: 500,
@@ -182,6 +183,7 @@ class UserController extends Controller {
       data: {
         ...userInfo,
         token,
+        password: undefined,
       },
     };
     return;
